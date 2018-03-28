@@ -7,6 +7,7 @@
 #else
 #include <GL/glut.h>
 #endif
+#include "imageloader.h"
 
 using namespace std;
 
@@ -20,6 +21,39 @@ void handleKeypress(unsigned char key,
                                 exit(0);
                         }
                     }
+
+/*
+GLuint loadTexture(Image* image) {
+	GLuint textureId;
+	glGenTextures(1, &textureId); //Make room for our texture
+	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+	//Map the image to the texture
+	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+				 0,                            //0 for now
+				 GL_RGB,                       //Format OpenGL uses for image
+				 image->width, image->height,  //Width and height
+				 0,                            //The border of the image
+				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+				                   //as unsigned numbers
+				 image->pixels);               //The actual pixel data
+	return textureId; //Returns the id of the texture
+}
+
+GLuint _textureId; //The id of the texture
+
+void initRendering() {
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_NORMALIZE);
+	glEnable(GL_COLOR_MATERIAL);
+	
+	Image* image = loadBMP("pic.bmp");
+	_textureId = loadTexture(image);
+	delete image;
+}
+*/
 
 void initRendering(){
     //Makes 3D drawing work when something is in front of something else
@@ -67,16 +101,27 @@ void drawScene_() {
     glTranslatef(0.0f, -1.0f, 0.0f); //Move to the center of the trapezoid
     glRotatef(_angle, 0.0f, 0.0f, 1.0f); //Rotate about the z-axis
     
+//     glEnable(GL_TEXTURE_2D);
+//     glBindTexture(GL_TEXTURE_2D, _textureId);
+	
+//     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+//     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+//     glColor3f(1.0f, 0.2f, 0.2f);
+	
     glBegin(GL_QUADS);
     
     //Trapezoid
     glColor3f(0.5f, 0.0f, 0.8f);
+//	glTexCoord2f(0.0f, 0.0f);
     glVertex3f(-0.7f, -0.5f, 0.0f);
     glColor3f(0.0f, 0.9f, 0.0f);
+//	glTexCoord2f(1.0f, 0.0f);
     glVertex3f(0.7f, -0.5f, 0.0f);
     glColor3f(1.0f, 0.0f, 0.0f);
+//	glTexCoord2f(1.0f, 1.0f);
     glVertex3f(0.4f, 0.5f, 0.0f);
     glColor3f(0.0f, 0.65f, 0.65f);
+//	glTexCoord2f(0.0f, 1.0f);
     glVertex3f(-0.4f, 0.5f, 0.0f);
     
     glEnd();
