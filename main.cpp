@@ -13,6 +13,7 @@ using namespace std;
 
 float _angle = 30.0f;
 float _cameraAngle = 10.0f;
+GLuint _textureGrass, _textureWindow, _textureSky;
 
 void handleKeypress(unsigned char key,
                     int x, int y){
@@ -22,7 +23,7 @@ void handleKeypress(unsigned char key,
                         }
                     }
 
-/*
+
 GLuint loadTexture(Image* image) {
 	GLuint textureId;
 	glGenTextures(1, &textureId); //Make room for our texture
@@ -40,8 +41,7 @@ GLuint loadTexture(Image* image) {
 	return textureId; //Returns the id of the texture
 }
 
-GLuint _textureId; //The id of the texture
-
+/*
 void initRendering() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
@@ -226,6 +226,19 @@ void drawScene() {
             glTexCoord3f(0.0,0.0,-1);  glVertex3f(-50,-1.5,-50);
             glTexCoord3f(70.0,0.0,-1);  glVertex3f(50,-1.5,-50);
             glTexCoord3f(70.0,70.0,1);  glVertex3f(50,-1.5,50);
+        glEnd();
+    glPopMatrix();
+	
+    //Window
+    glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, _textureWindow);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glBegin(GL_QUADS);
+            glTexCoord3f(0.0,1.0,1.0001); glVertex3f(-1.5,-0.3,1.0001);
+            glTexCoord3f(1.0,1.0,1.0001); glVertex3f(-0.75,-0.3,1.0001);
+            glTexCoord3f(1.0,0.0,1.0001); glVertex3f(-0.75,-0.8,1.0001);
+            glTexCoord3f(0.0,0.0,1.0001); glVertex3f(-1.5,-0.8,1.0001);
         glEnd();
     glPopMatrix();
 	
