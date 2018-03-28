@@ -13,7 +13,7 @@ using namespace std;
 
 float _angle = 30.0f;
 float _cameraAngle = 10.0f;
-GLuint _textureGrass, _textureWindow, _textureSky;
+GLuint _textureGrass, _textureWindow, _textureSky, _textureWall;
 
 void handleKeypress(unsigned char key,
                     int x, int y){
@@ -241,6 +241,20 @@ void drawScene() {
             glTexCoord3f(0.0,0.0,1.0001); glVertex3f(-1.5,-0.8,1.0001);
         glEnd();
     glPopMatrix();
+
+    // Wall
+    glPushMatrix();
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glBegin(GL_QUADS);
+            glTexCoord3f(0.0,2.0,1);    glVertex3f(-2,0,1);
+            glTexCoord3f(2.0,2.0,-1);    glVertex3f(-2,0,-1);
+            glTexCoord3f(2.0,0.0,-1);    glVertex3f(-2,-1.5,-1);
+            glTexCoord3f(0.0,0.0,1);    glVertex3f(-2,-1.5,1);
+        glEnd();
+
+    glPopMatrix();
 	
 	glColor3f(1.0f, 1.0f, 0.0f);
 	glBegin(GL_QUADS);
@@ -306,6 +320,8 @@ void Initialize() {
 	    _textureGrass = loadTexture(image);
     Image* image = loadBMP("window.bmp")
 	    _textureWindow = loadTexture(image);
+    Image* image = loadBMP("wall.bmp")
+	    _textureWall = loadTexture(image);
     delete image;
 
 int main(int argc, char** argv){
