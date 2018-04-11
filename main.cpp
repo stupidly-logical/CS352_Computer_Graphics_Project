@@ -11,6 +11,7 @@ GLuint skybox[6];
 GLuint grass;
 // float pass[4][3]={{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
 
+//Loading image data for texturing
 GLuint LoadBMP(const char *fileName)
 {
 	FILE *file;
@@ -49,13 +50,13 @@ void initSky()
 	glClearDepth(1.0f);									
 	glEnable(GL_DEPTH_TEST);														
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	
-		skybox[SKY_DOWN] = LoadBMP("BMP11/down.bmp");
-		skybox[SKY_FRONT] = LoadBMP("BMP11/front.bmp");
-		skybox[SKY_BACK] = LoadBMP("BMP11/back.bmp");
-		skybox[SKY_RIGHT] = LoadBMP("BMP11/right.bmp");
-		skybox[SKY_LEFT] = LoadBMP("BMP11/left.bmp");
-		skybox[SKY_UP] = LoadBMP("BMP11/up.bmp");
-		grass=LoadBMP("BMP11/grass_1.bmp");
+		skybox[SKY_DOWN] = LoadBMP("Sky/down.bmp");
+		skybox[SKY_FRONT] = LoadBMP("Sky/front.bmp");
+		skybox[SKY_BACK] = LoadBMP("Sky/back.bmp");
+		skybox[SKY_RIGHT] = LoadBMP("Sky/right.bmp");
+		skybox[SKY_LEFT] = LoadBMP("Sky/left.bmp");
+		skybox[SKY_UP] = LoadBMP("Sky/up.bmp");
+		grass=LoadBMP("Sky/grass_1.bmp");
 }
 
 void Draw_Skybox(float x, float y, float z, float width, float height, float length){
@@ -160,9 +161,6 @@ void handleSpecialKeypress(int key, int x, int y){
 
 	glutPostRedisplay();
 }
-
-//Loading image data for texturing
-
 
 
 //Initializes 3D rendering
@@ -536,7 +534,150 @@ void drawTailSet() {
 	glTexCoord2f(0,1);	glVertex3f(0.7f, 1.0f, -5.0f);
 	glEnd();
 
+	//bottom-box
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.7f, -0.3f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.7f, -0.3f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.3f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.3f, -5.0f);
+	glEnd();
+
 }
+
+void drawSmallStairs(){
+	//Stair 1-bottom
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.7f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.7f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -1.0f, -5.0f);
+	glEnd();
+
+	//Stair 1-top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -0.95f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.95f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -5.0f);
+	glEnd();
+
+	//Stair 1-back
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -5.0f);
+	glEnd();
+
+	//Stair 1-left
+	glBindTexture(GL_TEXTURE_2D, _textureGrass);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.75f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.75f, -0.95f, -4.0f);
+	glEnd();
+
+	//Stair 1-front
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -4.0f);
+	glEnd();
+
+	//Stair 2-top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -0.95f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.95f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -5.0f);
+	glEnd();
+
+	//Stair 2-back
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -5.0f);
+	glEnd();
+
+	//Stair 2-left
+	glBindTexture(GL_TEXTURE_2D, _textureGrass);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.75f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.75f, -0.95f, -4.0f);
+	glEnd();
+
+	//Stair 2-front
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -4.0f);
+	glEnd();
+}
+
 /*
 void drawWindow(){
 	glBindTexture(GL_TEXTURE_2D, _textureWindow);
@@ -561,6 +702,7 @@ void drawScene() {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	 Draw_Skybox(0,0,0,250,250,250);
+	 draw_ground();
 	
 	glTranslatef(0.0f, 0.0f, -8.0f);
 	
@@ -789,6 +931,7 @@ void drawScene() {
 	// drawWindow();
 
 	drawTailSet();
+	drawSmallStairs();
 /*
 	//Top
 	glBegin(GL_QUADS);
@@ -857,6 +1000,7 @@ int main(int argc, char** argv) {
 	glutCreateWindow("Project");
 	initRendering();
 	initSky();
+
 	
 	//Set handler functions
 	glutDisplayFunc(drawScene);
