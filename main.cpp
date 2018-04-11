@@ -626,13 +626,13 @@ void drawSmallStairs(){
 	glBegin(GL_QUADS);
 	glNormal3f(1.0f, 0.0f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.8f, -0.9f, -5.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,0);	glVertex3f(0.75f, -0.95f, -4.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.8f, -0.9f, -4.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.95f, -4.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.9f, -4.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -5.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.9f, -5.0f);
 	glEnd();
 
 	//Stair 2-back
@@ -640,13 +640,13 @@ void drawSmallStairs(){
 	glBegin(GL_QUADS);
 	glNormal3f(1.0f, 0.0f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.8f, -0.9f, -5.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -5.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.8f, -0.95f, -5.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -5.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.95f, -5.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -5.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.9f, -5.0f);
 	glEnd();
 
 	//Stair 2-left
@@ -654,13 +654,13 @@ void drawSmallStairs(){
 	glBegin(GL_QUADS);
 	glNormal3f(1.0f, 0.0f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -5.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.8f, -0.9f, -5.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -5.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.8f, -0.95f, -5.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,1);	glVertex3f(0.75f, -1.0f, -4.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.8f, -0.95f, -4.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,1);	glVertex3f(0.75f, -0.95f, -4.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.8f, -0.9f, -4.0f);
 	glEnd();
 
 	//Stair 2-front
@@ -668,13 +668,85 @@ void drawSmallStairs(){
 	glBegin(GL_QUADS);
 	glNormal3f(1.0f, 0.0f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,0);	glVertex3f(0.75f, -0.95f, -4.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.8f, -0.9f, -4.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,0);	glVertex3f(0.75f, -1.0f, -4.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.8f, -0.95f, -4.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,1);	glVertex3f(1.2f, -1.0f, -4.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.95f, -4.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.95f, -4.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.9f, -4.0f);
+	glEnd();
+
+	//Stair 3-top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.85f, -0.85f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.85f, -0.85f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.85f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.85f, -5.0f);
+	glEnd();
+
+	//Stair 3-back
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.85f, -0.85f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.85f, -0.9f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.9f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.85f, -5.0f);
+	glEnd();
+
+	//Stair 3-left
+	glBindTexture(GL_TEXTURE_2D, _textureGrass);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.85f, -0.85f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.85f, -0.9f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.85f, -0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.85f, -0.85f, -4.0f);
+	glEnd();
+
+	//Stair 3-front
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.85f, -0.85f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.85f, -0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.85f, -4.0f);
+	glEnd();
+}
+
+void drawPillars(){
+	//box-back
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.85f, -0.85f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.85f, -0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, -0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.85f, -4.0f);
 	glEnd();
 }
 
