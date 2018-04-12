@@ -10,6 +10,8 @@ const int SKY_FRONT=0,SKY_RIGHT=1,SKY_LEFT=2,SKY_BACK=3,SKY_UP=4,SKY_DOWN=5;
 GLuint skybox[6];
 GLuint grass;
 GLfloat d[3] = {0,0,-10.8};
+GLfloat lightColor0[] = {0.5f, 0.5f, 0.5f, 1.0f}; //Color (0.5, 0.5, 0.5)
+GLfloat lightColor1[] = {0.0f, 0.2f, 0.2f, 1.0f}; //Color (0.5, 0.2, 0.2)
 
 GLuint LoadBMP(const char *fileName) {
 	FILE *file;
@@ -142,6 +144,16 @@ void handleKeypress(unsigned char key, int x, int y) {
 		angle_view -= 1.5;  break;
 		case 'x':  
 		angle_view += 1.5;  break;
+        case 'l':
+        lightColor0[0] += 1;
+        if(lightColor0[0] > 3)
+            lightColor0[0] = 1;
+        lightColor0[1] += 1;
+            if(lightColor0[1] > 3)
+                lightColor0[1] = 1;
+        lightColor0[2] += 1;
+            if(lightColor0[2] > 3)
+                lightColor0[2] = 1;
 	}
 
 	glutPostRedisplay();
@@ -1295,14 +1307,12 @@ void drawScene() {
 	GLfloat ambientColor[] = {0.2f, 0.2f, 0.2f, 1.0f}; //Color (0.2, 0.2, 0.2)
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientColor);
 	
-	//Add positioned light
-	GLfloat lightColor0[] = {0.5f, 0.5f, 0.5f, 1.0f}; //Color (0.5, 0.5, 0.5)
-	GLfloat lightPos0[] = {100.0f, 100.0f, 100.0f, 1.0f}; //Positioned at (4, 0, 8)
+	//Positioned light
+	GLfloat lightPos0[] = {4.0f, 0.0f, 8.0f, 1.0f}; //Positioned at (4, 0, 8)
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColor0);
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPos0);
 	
-	//Add directed light
-	GLfloat lightColor1[] = {0.0f, 0.2f, 0.2f, 1.0f}; //Color (0.5, 0.2, 0.2)
+	//Directed light
 	//Coming from the direction (-1, 0.5, 0.5)
 	GLfloat lightPos1[] = {-1.0f, 0.5f, 0.5f, 0.0f};
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightColor1);
