@@ -9,6 +9,7 @@ GLuint _textureGrass, _textureWindow, _textureSky, _textureWall, _textureGlass, 
 const int SKY_FRONT=0,SKY_RIGHT=1,SKY_LEFT=2,SKY_BACK=3,SKY_UP=4,SKY_DOWN=5;
 GLuint skybox[6];
 GLuint grass;
+GLfloat d[3] = {0,0,-10.8};
 // float pass[4][3]={{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
 
 //Loading image data for texturing
@@ -134,14 +135,20 @@ void draw_ground()
 //Called when a key is pressed
 void handleKeypress(unsigned char key, int x, int y) {
 	switch (key) {
-		case 27: //Escape key
-			exit(0);
-		case 'z':
-			angle_tilt -= 5;
-			break;
-		case 'x':
-			angle_tilt += 5;
-			break;
+		case 27:
+		exit(0); break;
+		case 'q':
+		angle_tilt -= 1.5; break;
+		case 'w':
+		angle_tilt += 1.5; break;
+		case 'a' :
+		angle_tip -= 1.5;  break;
+		case 's':  
+		angle_tip += 1.5;  break;
+		case 'z':  
+		angle_view -= 1.5;  break;
+		case 'x':  
+		angle_view += 1.5;  break;
 	}
 
 	glutPostRedisplay();
@@ -150,13 +157,13 @@ void handleKeypress(unsigned char key, int x, int y) {
 void handleSpecialKeypress(int key, int x, int y){
 	switch(key){
        case GLUT_KEY_LEFT :
-       angle_tip -= 5;  break;
+       d[0] -= 0.5;  break;
        case GLUT_KEY_RIGHT:  
-       angle_tip += 5;  break;
+       d[0] += 0.5;  break;
        case GLUT_KEY_UP   :  
-       angle_view -= 5;  break;
+       d[2] -= 0.5;  break;
        case GLUT_KEY_DOWN :  
-       angle_view += 5;  break;
+       d[2] += 0.5;  break;
 	}
 
 	glutPostRedisplay();
@@ -1230,7 +1237,7 @@ void drawScene() {
 	 Draw_Skybox(0,0,0,250,250,250);
 	 draw_ground();
 	
-	glTranslatef(0.0f, 0.0f, -8.0f);
+	glTranslatef(d[0], d[1], d[2]);
 	
 	//Add ambient light
 	GLfloat ambientColor[] = {0.2f, 0.2f, 0.2f, 1.0f}; //Color (0.2, 0.2, 0.2)
