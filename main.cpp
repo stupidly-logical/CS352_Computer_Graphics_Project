@@ -142,12 +142,18 @@ void handleKeypress(unsigned char key, int x, int y) {
 		angle_view -= 1.5;  break;
 		case 'x':  
 		angle_view += 1.5;  break;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97eb61b21d71f6658d1a9b5abe94efd9d63894e1
 		case 'v':
 		angle_win -= 1.5;	break;
 		case 'b':
 		angle_win += 1.5;	break;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97eb61b21d71f6658d1a9b5abe94efd9d63894e1
         case 'l':
         lightColor0[0] += 1;
         if(lightColor0[0] > 3)
@@ -275,7 +281,7 @@ void drawFrontWindow(){
 	glTexCoord2f(0,0);	glVertex3f(-0.17f, -0.17f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
 	glTexCoord2f(1,0);	glVertex3f(0.17f, -0.17f, 0.0f);
-	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);z
 	glTexCoord2f(1,1);	glVertex3f(0.17f, 0.17f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
 	glTexCoord2f(0,1);	glVertex3f(-0.17f, 0.17f, 0.0f);
