@@ -169,6 +169,11 @@ void handleSpecialKeypress(int key, int x, int y){
 	glutPostRedisplay();
 }
 
+void handleMouseKeyPress(int button, int state, int x, int y){
+}
+
+void handlePassiveMotion(int x, int y){
+}
 
 //Initializes 3D rendering
 void initRendering() {
@@ -1685,6 +1690,8 @@ int main(int argc, char** argv) {
 	glutKeyboardFunc(handleKeypress);
 	glutSpecialFunc(handleSpecialKeypress);
 	glutReshapeFunc(handleResize);
+	glutMouseFunc(handleMouseKeyPress);
+	glutPassiveMotionFunc(handlePassiveMotion);
 	
 	//glutTimerFunc(25, update, 0); //Add a timer
 	Initialize();
