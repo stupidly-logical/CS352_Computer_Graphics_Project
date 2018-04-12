@@ -34,8 +34,6 @@ GLuint LoadBMP(const char *fileName) {
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
 
-
-
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
@@ -144,12 +142,12 @@ void handleKeypress(unsigned char key, int x, int y) {
 		angle_view -= 1.5;  break;
 		case 'x':  
 		angle_view += 1.5;  break;
-<<<<<<< HEAD
+
 		case 'v':
 		angle_win -= 1.5;	break;
 		case 'b':
 		angle_win += 1.5;	break;
-=======
+
         case 'l':
         lightColor0[0] += 1;
         if(lightColor0[0] > 3)
@@ -160,7 +158,6 @@ void handleKeypress(unsigned char key, int x, int y) {
         lightColor0[2] += 1;
             if(lightColor0[2] > 3)
                 lightColor0[2] = 1;
->>>>>>> e22a69df6cbf762d2722602c3c94938bb74d6801
 	}
 
 	glutPostRedisplay();
@@ -323,21 +320,6 @@ void drawBackWindow(){
 	glTexCoord2f(1,1);	glVertex3f(0.15f, 0.15f, -0.01f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
 	glTexCoord2f(0,1);	glVertex3f(-0.15f, 0.15f, -0.01f);
-	glEnd();
-}
-
-void drawdoor(){
-	glBindTexture(GL_TEXTURE_2D, _textureFrame);
-	glBegin(GL_POLYGON);
-	glNormal3f(-1.0f, 0.0f, 0.0f);
-	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,0);	glVertex3f(-1.8f, -0.85f, 1.0f);
-	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,0);	glVertex3f(-1.4f, -0.85f, 1.0f);
-	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,1);	glVertex3f(-1.4f, -0.5f, 1.0f);
-	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glTexCoord2f(0,1);	glVertex3f(-1.8f, -0.5f, 1.0f);
 	glEnd();
 }
 
@@ -725,6 +707,20 @@ void drawTailSet() {
 	glTexCoord2f(0,1);	glVertex3f(1.8f, 1.0f, -2.8f);
 	glEnd();
 
+	//Top-connector
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(1.4f, 0.9f, -2.8f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(1.8f, 0.9f, -2.8f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(2.2f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.8f, 0.9f, -1.5f);
+	glEnd();
+
 	//Back
 	glBindTexture(GL_TEXTURE_2D, _textureWall);
 	glBegin(GL_QUADS);
@@ -737,6 +733,42 @@ void drawTailSet() {
 	glTexCoord2f(1,1);	glVertex3f(2.2f, 1.0f, -5.0f);
 	//glNormal3f(1.0f, 0.0f, -1.0f);
 	glTexCoord2f(0,1);	glVertex3f(1.2f, 1.0f, -5.0f);
+	glEnd();
+
+	//Back Window-Top
+	glPushMatrix();
+	glTranslatef(1.75,0.63,-5.01);
+	drawBackWindow();
+	glTranslatef(-0.65,0,0);
+	drawBackWindow();
+	glPopMatrix();
+
+	//Back Window-Middle
+	glPushMatrix();
+	glTranslatef(1.75,0.03,-5.01);
+	drawBackWindow();
+	glTranslatef(-0.65,0,0);
+	drawBackWindow();
+	glPopMatrix();
+
+	//Back Window-Bottom
+	glPushMatrix();
+	glTranslatef(1.75,-0.6,-5.01);
+	drawBackWindow();
+	glPopMatrix();
+
+	//Top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(1.2f, 0.9f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(2.2f, 0.9f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(2.2f, 0.9f, -2.8f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, 0.9f, -2.8f);
 	glEnd();
 
 	//Front
@@ -824,6 +856,21 @@ void drawTailSet() {
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
 	glTexCoord2f(0,1);	glVertex3f(1.2f, -0.3f, -5.0f);
 	glEnd();
+
+	//Top-box
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.7f, 0.9f, -5.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.7f, 0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.2f, 0.9f, -4.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.2f, 0.9f, -5.0f);
+	glEnd();
+
 
 	//Tail-Door
 	glBindTexture(GL_TEXTURE_2D, _textureFrame);
@@ -1206,22 +1253,6 @@ void drawArch(){
 	glPopMatrix();
 }
 
-void drawSlideStairs(){
-	//Slide Stairs
-	glBindTexture(GL_TEXTURE_2D, _textureWall);
-	glBegin(GL_QUADS);
-	glNormal3f(0.0f, 0.0f, 1.0f);
-	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(0,0);	glVertex3f(-1.71f, -1.0f, -3.4f);
-	//glNormal3f(1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,0);	glVertex3f(-0.3f, -1.0f, -3.4f);
-	//glNormal3f(1.0f, 0.0f, 1.0f);
-	glTexCoord2f(1,1);	glVertex3f(-0.3f, -0.69f, -3.4f);
-	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glTexCoord2f(0,1);	glVertex3f(-1.71f, -0.69f, -3.4f);
-	glEnd();
-}
-
 void drawBackstage(){
 
 	//Front
@@ -1390,6 +1421,20 @@ void drawScene() {
 	glTexCoord2f(0,1);	glVertex3f(-2.5f, 1.0f, 1.2f);
 	glEnd();
 
+	//Top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-2.5f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-2.1f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-2.1f, 0.9f, 1.2f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-2.5f, 0.9f, 1.2f);
+	glEnd();
+
 	//Front-Left Window
 	glPushMatrix();
 	glScalef(0.85,0.85,1);
@@ -1413,6 +1458,62 @@ void drawScene() {
 	glTexCoord2f(1,1);	glVertex3f(-1.2f, 1.0f, 1.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
 	glTexCoord2f(0,1);	glVertex3f(-2.1f, 1.0f, 1.0f);
+	glEnd();
+
+	//Front-Left-Office-Glass
+	glBindTexture(GL_TEXTURE_2D, _textureWindow);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, 1.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-2.1f, -0.3f, 1.01f);
+	//glNormal3f(1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-1.2f, -0.3f, 1.01f);
+	//glNormal3f(1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-1.2f, 0.9f, 1.01f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-2.1f, 0.9f, 1.01f);
+	glEnd();
+
+	//Front-Left-Office-Glass frame
+	glBindTexture(GL_TEXTURE_2D, _texturePillar);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, 1.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-2.1f, 0.2f, 1.02f);
+	//glNormal3f(1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-1.2f, 0.2f, 1.02f);
+	//glNormal3f(1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-1.2f, 0.35f, 1.02f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-2.1f, 0.35f, 1.02f);
+	glEnd();
+
+	// //Front-Left-Office-Logo
+	// glBindTexture(GL_TEXTURE_2D, _textureLogo);
+	// glBegin(GL_QUADS);
+	// glNormal3f(0.0f, 0.0f, 1.0f);
+	// //glNormal3f(-1.0f, 0.0f, 1.0f);
+	// glTexCoord2f(0,0);	glVertex3f(-1.7f, 0.45f, 1.02f);
+	// //glNormal3f(1.0f, 0.0f, 1.0f);
+	// glTexCoord2f(1,0);	glVertex3f(-1.4f, 0.45f, 1.02f);
+	// //glNormal3f(1.0f, 0.0f, 1.0f);
+	// glTexCoord2f(1,1);	glVertex3f(-1.4f, 0.75f, 1.02f);
+	// //glNormal3f(-1.0f, 0.0f, 1.0f);
+	// glTexCoord2f(0,1);	glVertex3f(-1.7f, 0.75f, 1.02f);
+	// glEnd();
+
+	//Top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-2.1f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-1.2f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-1.2f, 0.9f, 1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-2.1f, 0.9f, 1.0f);
 	glEnd();
 
 	//Front-Left-Office-right wall
@@ -1515,6 +1616,20 @@ void drawScene() {
 	glTexCoord2f(0,1);	glVertex3f(1.9f, 1.0f, 1.2f);
 	glEnd();
 
+	//Top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(1.9f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(3.0f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(3.0f, 0.9f, 1.7f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.9f, 0.9f, 1.2f);
+	glEnd();
+
 	//Front Window-Top
 	glPushMatrix();
 	glRotatef(-24.4,0,1,0);
@@ -1569,6 +1684,21 @@ void drawScene() {
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
 	glTexCoord2f(0,1);	glVertex3f(1.6f, 1.0f, 1.2f);
 	glEnd();
+
+	//Top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
+	glBegin(GL_QUADS);
+	glNormal3f(-1.0f, 0.0f, 0.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(1.6f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,0);	glVertex3f(1.9f, 0.9f, -1.5f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	glTexCoord2f(1,1);	glVertex3f(1.9f, 0.9f, 1.2f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(1.6f, 0.9f, 1.2f);
+	glEnd();
+
 
 	//Front-Right-back wall-Window
 	glBindTexture(GL_TEXTURE_2D, _textureFrame);
@@ -1808,7 +1938,7 @@ void drawScene() {
 	drawBackWindow();
 	glPopMatrix();
 
-	//Back Window-Middle
+	//Back Window-Bottom
 	glPushMatrix();
 	glTranslatef(2.62,-0.6,-1.51);
 	drawBackWindow();
@@ -1816,12 +1946,6 @@ void drawScene() {
 	drawBackWindow();
 	glTranslatef(-0.6,0,0);
 	drawBackWindow();
-	// glTranslatef(-0.6,0,0);
-	// drawBackWindow();
-	// glTranslatef(-0.6,0,0);
-	// drawBackWindow();
-	// glTranslatef(-0.6,0,0);
-	// drawBackWindow();
 	glTranslatef(-2.4,0,0);
 	drawBackWindow();
 	glTranslatef(-0.6,0,0);
@@ -1887,19 +2011,21 @@ void drawScene() {
 	glTranslatef(0,0,0.8);
 	drawPillar();
 	glTranslatef(0,0,-0.8);
-/*
+
 	//Top
+	glBindTexture(GL_TEXTURE_2D, _textureWall);
 	glBegin(GL_QUADS);
 	glNormal3f(-1.0f, 0.0f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glVertex3f(-1.5f, 0.9f, -1.5f);
+	glTexCoord2f(0,0);	glVertex3f(-1.2f, 0.9f, -1.5f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glVertex3f(1.5f, 0.9f, -1.5f);
+	glTexCoord2f(1,0);	glVertex3f(1.6f, 0.9f, -1.5f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
-	glVertex3f(1.5f, 0.9f, 1.5f);
+	glTexCoord2f(1,1);	glVertex3f(1.6f, 0.9f, 1.5f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
-	glVertex3f(-1.5f, 0.9f, 1.5f);
-*/
+	glTexCoord2f(0,1);	glVertex3f(-1.2f, 0.9f, 1.5f);
+	glEnd();
+
 	//Bottom
 	glBindTexture(GL_TEXTURE_2D, _textureGrass);
 	glBegin(GL_QUADS);
