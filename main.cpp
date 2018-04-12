@@ -10,11 +10,8 @@ const int SKY_FRONT=0,SKY_RIGHT=1,SKY_LEFT=2,SKY_BACK=3,SKY_UP=4,SKY_DOWN=5;
 GLuint skybox[6];
 GLuint grass;
 GLfloat d[3] = {0,0,-10.8};
-// float pass[4][3]={{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
 
-//Loading image data for texturing
-GLuint LoadBMP(const char *fileName)
-{
+GLuint LoadBMP(const char *fileName) {
 	FILE *file;
 	unsigned char header[54],*data;
 	unsigned int dataPos,size,width, height;
@@ -44,8 +41,7 @@ GLuint LoadBMP(const char *fileName)
 	return texture;
 }
 
-void initSky()
-{
+void initSky() {
 	glShadeModel(GL_SMOOTH);							
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				
 	glClearDepth(1.0f);									
@@ -118,9 +114,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 
 }
 
-
-void draw_ground()
-{		
+void draw_ground() {
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D,grass);
 	glBegin(GL_QUADS);
@@ -132,7 +126,6 @@ void draw_ground()
 	glDisable(GL_TEXTURE_2D);
 }
 
-//Called when a key is pressed
 void handleKeypress(unsigned char key, int x, int y) {
 	switch (key) {
 		case 27:
@@ -175,7 +168,6 @@ void handleMouseKeyPress(int button, int state, int x, int y){
 void handlePassiveMotion(int x, int y){
 }
 
-//Initializes 3D rendering
 void initRendering() {
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_COLOR_MATERIAL);
@@ -186,7 +178,6 @@ void initRendering() {
 	//glShadeModel(GL_SMOOTH); //Enable smooth shading
 }
 
-//Called when the window is resized
 void handleResize(int w, int h) {
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
@@ -1290,9 +1281,6 @@ void drawBackstage(){
 	glPopMatrix();
 }
 
-
-
-//Draws the 3D scene
 void drawScene() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
