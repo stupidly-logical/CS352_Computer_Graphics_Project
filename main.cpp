@@ -261,7 +261,7 @@ void drawFrontWindow(){
 	glTexCoord2f(0,0);	glVertex3f(-0.17f, -0.17f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, 1.0f);
 	glTexCoord2f(1,0);	glVertex3f(0.17f, -0.17f, 0.0f);
-	//glNormal3f(-1.0f, 0.0f, 1.0f);
+	//glNormal3f(-1.0f, 0.0f, 1.0f);z
 	glTexCoord2f(1,1);	glVertex3f(0.17f, 0.17f, 0.0f);
 	//glNormal3f(-1.0f, 0.0f, -1.0f);
 	glTexCoord2f(0,1);	glVertex3f(-0.17f, 0.17f, 0.0f);
