@@ -144,12 +144,10 @@ void handleKeypress(unsigned char key, int x, int y) {
 		angle_view -= 1.5;  break;
 		case 'x':  
 		angle_view += 1.5;  break;
-<<<<<<< HEAD
 		case 'v':
 		angle_win -= 1.5;	break;
 		case 'b':
 		angle_win += 1.5;	break;
-=======
         case 'l':
         lightColor0[0] += 1;
         if(lightColor0[0] > 3)
@@ -160,7 +158,6 @@ void handleKeypress(unsigned char key, int x, int y) {
         lightColor0[2] += 1;
             if(lightColor0[2] > 3)
                 lightColor0[2] = 1;
->>>>>>> e22a69df6cbf762d2722602c3c94938bb74d6801
 	}
 
 	glutPostRedisplay();
