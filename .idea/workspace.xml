@@ -28,11 +28,10 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+            <state relative-caret-position="285">
+              <caret line="1310" column="28" selection-start-line="1310" selection-start-column="28" selection-end-line="1310" selection-end-column="28" />
               <folding>
                 <element signature="e#492#1355#0" />
-                <element signature="e#1357#1886#0" />
                 <element signature="e#1888#4046#0" />
                 <element signature="e#4049#4397#0" />
                 <element signature="e#4808#5130#0" />
@@ -54,11 +53,19 @@
                 <element signature="e#33431#37168#0" />
                 <element signature="e#37170#37667#0" />
                 <element signature="e#37669#40309#0" />
-                <element signature="e#40313#53811#0" />
                 <element signature="e#49619#49756#0" />
                 <element signature="e#49758#50331#0" />
                 <element signature="e#50333#50842#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gl.h" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/GL/gl.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="1172" column="30" selection-start-line="1172" selection-start-column="30" selection-end-line="1172" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -165,12 +172,12 @@
       <updated>1523444523523</updated>
       <workItem from="1523444526448" duration="975000" />
       <workItem from="1523459770844" duration="1107000" />
-      <workItem from="1523527475230" duration="2337000" />
+      <workItem from="1523527475230" duration="4343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4419000" />
+    <option name="totallyTimeSpent" value="6425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -208,7 +215,6 @@
           <caret line="129" column="53" selection-start-line="129" selection-start-column="53" selection-end-line="129" selection-end-column="53" />
           <folding>
             <element signature="e#492#1355#0" />
-            <element signature="e#1357#1886#0" />
             <element signature="e#1888#4046#0" />
             <element signature="e#4049#4397#0" />
             <element signature="e#4808#5130#0" />
@@ -230,7 +236,6 @@
             <element signature="e#33431#37168#0" />
             <element signature="e#37170#37667#0" />
             <element signature="e#37669#40309#0" />
-            <element signature="e#40313#53811#0" />
             <element signature="e#49619#49756#0" />
             <element signature="e#49758#50331#0" />
             <element signature="e#50333#50842#0" />
@@ -266,13 +271,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/include/tkDecls.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="368" column="60" selection-start-line="368" selection-start-column="60" selection-end-line="368" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/GL/gl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="1172" column="30" selection-start-line="1172" selection-start-column="30" selection-end-line="1172" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="135" column="14" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+        <state relative-caret-position="285">
+          <caret line="1310" column="28" selection-start-line="1310" selection-start-column="28" selection-end-line="1310" selection-end-column="28" />
           <folding>
             <element signature="e#492#1355#0" />
-            <element signature="e#1357#1886#0" />
             <element signature="e#1888#4046#0" />
             <element signature="e#4049#4397#0" />
             <element signature="e#4808#5130#0" />
@@ -294,7 +312,6 @@
             <element signature="e#33431#37168#0" />
             <element signature="e#37170#37667#0" />
             <element signature="e#37669#40309#0" />
-            <element signature="e#40313#53811#0" />
             <element signature="e#49619#49756#0" />
             <element signature="e#49758#50331#0" />
             <element signature="e#50333#50842#0" />
