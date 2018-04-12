@@ -114,18 +114,6 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 
 }
 
-void draw_ground() {
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D,grass);
-	glBegin(GL_QUADS);
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(10,0,10);
-	glTexCoord2f(800.0f, 0.0f); glVertex3f(10,0,-10);
-	glTexCoord2f(800.0f, 800.0f); glVertex3f(-10,0,-10);
-	glTexCoord2f(0.0f, 800.0f); glVertex3f(-10,0,10);
-	glEnd();
-	glDisable(GL_TEXTURE_2D);
-}
-
 void handleKeypress(unsigned char key, int x, int y) {
 	switch (key) {
 		case 27:
@@ -142,18 +130,14 @@ void handleKeypress(unsigned char key, int x, int y) {
 		angle_view -= 1.5;  break;
 		case 'x':  
 		angle_view += 1.5;  break;
-<<<<<<< HEAD
 
-=======
->>>>>>> 97eb61b21d71f6658d1a9b5abe94efd9d63894e1
 		case 'v':
 		angle_win -= 1.5;	break;
 		case 'b':
 		angle_win += 1.5;	break;
-<<<<<<< HEAD
 
-=======
->>>>>>> 97eb61b21d71f6658d1a9b5abe94efd9d63894e1
+
+
         case 'l':
         lightColor0[0] += 1;
         if(lightColor0[0] > 3)
@@ -184,7 +168,7 @@ void handleSpecialKeypress(int key, int x, int y){
 	glutPostRedisplay();
 }
 
-bool rotate;
+// bool rotate;
 
 // void handleMouseKeyPress(int button, int state, int x, int y){
 // 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
