@@ -1,0 +1,3 @@
+/home/stupid/CS352/project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/stupid/CS352/project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/stupid/CS352/project/cmake-build-debug/CMakeFiles/main.dir
