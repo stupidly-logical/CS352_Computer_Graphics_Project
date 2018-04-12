@@ -4,7 +4,7 @@
 
 using namespace std;
 
-float angle_tip = 0.0f, angle_view = 0.0f, angle_tilt = 0.0f;
+float angle_tip = 0.0f, angle_view = 0.0f, angle_tilt = 0.0f, angle_win = 0.0f;
 GLuint _textureGrass, _textureWindow, _textureSky, _textureWall, _textureGlass, _textureLogo, _texturePillar, _textureTile, _textureDoor, _textureFrame;
 const int SKY_FRONT=0,SKY_RIGHT=1,SKY_LEFT=2,SKY_BACK=3,SKY_UP=4,SKY_DOWN=5;
 GLuint skybox[6];
@@ -142,6 +142,10 @@ void handleKeypress(unsigned char key, int x, int y) {
 		angle_view -= 1.5;  break;
 		case 'x':  
 		angle_view += 1.5;  break;
+		case 'v':
+		angle_win -= 1.5;	break;
+		case 'b':
+		angle_win += 1.5;	break;
 	}
 
 	glutPostRedisplay();
@@ -162,8 +166,18 @@ void handleSpecialKeypress(int key, int x, int y){
 	glutPostRedisplay();
 }
 
-void handleMouseKeyPress(int button, int state, int x, int y){
-}
+bool rotate;
+
+// void handleMouseKeyPress(int button, int state, int x, int y){
+// 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+// 		// glTranslatef(0.3,0,-0.3);
+// 		rotate = true;
+// 	else{}
+
+// 	}
+// 	glutPostRedisplay();
+// }
+
 
 void handlePassiveMotion(int x, int y){
 }
@@ -1579,6 +1593,14 @@ void drawScene() {
 	glEnd();
 	// glDisable(GL_TEXTURE_2D);
 
+	//Right First Window-Top
+	glPushMatrix();
+	glTranslatef(3.01,0.6,1.3);
+	glRotatef(angle_win, 0.0f, 1.0f, 0.0f);
+	
+	drawRightWindow();
+	glPopMatrix();
+
 	//Right Window-Top
 	glPushMatrix();
 	glTranslatef(3.01,0.6,-1.1);
@@ -1589,8 +1611,8 @@ void drawScene() {
 	drawRightWindow();
 	glTranslatef(0,0,0.6);
 	drawRightWindow();
-	glTranslatef(0,0,0.6);
-	drawRightWindow();
+	// glTranslatef(0,0,0.6);
+	// drawRightWindow();
 	glPopMatrix();
 
 	//Right Window-Middle
@@ -1933,8 +1955,14 @@ int main(int argc, char** argv) {
 	glutKeyboardFunc(handleKeypress);
 	glutSpecialFunc(handleSpecialKeypress);
 	glutReshapeFunc(handleResize);
-	glutMouseFunc(handleMouseKeyPress);
+	// glutMouseFunc(handleMouseKeyPress);
 	glutPassiveMotionFunc(handlePassiveMotion);
+
+	//adding here the mouse processing callbacks
+	// glutMouseFunc(processMouse);
+	// glutMotionFunc(processMouseActiveMotion);
+	// glutPassiveMotionFunc(processMousePassiveMotion);
+	// glutEntryFunc(processMouseEntry);
 	
 	//glutTimerFunc(25, update, 0); //Add a timer
 	Initialize();
