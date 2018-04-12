@@ -1,0 +1,1 @@
+/usr/bin/c++   -lGL -lGLU -lglut -g  -rdynamic CMakeFiles/main.dir/main.cpp.o  -o main 
