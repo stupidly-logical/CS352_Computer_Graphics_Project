@@ -1645,6 +1645,104 @@ void drawScene() {
 	glTexCoord2f(0,1);	glVertex3f(3.0f, -1.0f, -1.5f);
 	glEnd();
 
+	//Back-Glass door
+	glBindTexture(GL_TEXTURE_2D, _textureWindow);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-1.25f, -1.0f, -1.51f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-1.25f, -0.3f, -1.51f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.5f, -0.3f, -1.51f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.5f, -1.0f, -1.51f);
+	glEnd();
+
+	//Back-Glass door frame 1
+	glBindTexture(GL_TEXTURE_2D, _textureTile);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-1.0f, -1.0f, -1.52f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-1.0f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-0.97f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-0.97f, -1.0f, -1.52f);
+	glEnd();
+
+	//Back-Glass door frame 2
+	glBindTexture(GL_TEXTURE_2D, _textureTile);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-0.75f, -1.0f, -1.52f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-0.75f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-0.72f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-0.72f, -1.0f, -1.52f);
+	glEnd();
+
+	//Back-Glass door frame 3
+	glBindTexture(GL_TEXTURE_2D, _textureTile);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-0.5f, -1.0f, -1.52f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-0.5f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-0.47f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-0.47f, -1.0f, -1.52f);
+	glEnd();
+
+	//Back-Glass door frame 4
+	glBindTexture(GL_TEXTURE_2D, _textureTile);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-0.25f, -1.0f, -1.52f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-0.25f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(-0.22f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(-0.22f, -1.0f, -1.52f);
+	glEnd();
+
+	//Back-Glass door frame 5
+	glBindTexture(GL_TEXTURE_2D, _textureTile);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(-0.0f, -1.0f, -1.52f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(-0.0f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.03f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.03f, -1.0f, -1.52f);
+	glEnd();
+
+	//Back-Glass door frame 6
+	glBindTexture(GL_TEXTURE_2D, _textureTile);
+	glBegin(GL_QUADS);
+	glNormal3f(0.0f, 0.0f, -1.0f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,0);	glVertex3f(0.24f, -1.0f, -1.52f);
+	//glNormal3f(-1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,0);	glVertex3f(0.24f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(1,1);	glVertex3f(0.27f, -0.3f, -1.52f);
+	//glNormal3f(1.0f, 0.0f, -1.0f);
+	glTexCoord2f(0,1);	glVertex3f(0.27f, -1.0f, -1.52f);
+	glEnd();
+
 	//Back Window-Top
 	glPushMatrix();
 	glTranslatef(2.62,0.63,-1.51);
